@@ -66,7 +66,7 @@ In your code:
 import . "github.com/dadooda/gopee"
 
 func main() {
-  P("Hello, world!")
+    P("Hello, world!")
 }
 ```
 
