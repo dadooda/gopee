@@ -2,6 +2,11 @@
 Go P()
 ======
 
+<p>
+  <!-- Badges -->
+  <a href="https://godoc.org/github.com/dadooda/gopee"><img src="https://godoc.org/github.com/dadooda/gopee?status.svg" alt="GoDoc"></a>
+</p>
+
 Print debug messages and variable contents with ease
 
 ## Overview
