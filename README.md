@@ -43,7 +43,7 @@ type person struct {
 
 P(person{"Joe", "m"})
 // Output:
-// gopee_test.person{firstName:"Joe", gender:"m"}
+// gopee.person{firstName:"Joe", gender:"m"}
 
 // Basic labels.
 P("name:", "Joe", "age:", 25)
@@ -83,7 +83,7 @@ Inline setup makes `P()` implicitly available throughout your package code and t
     ```sh
     $ curl https://raw.githubusercontent.com/dadooda/gopee/master/{p,p_test}.go -OO
     ```
-2. Edit `p*.go` files to replace `package mypee` (and possibly `package mypee_test`) with relevant name(s) of your package(s).
+2. Edit `p*.go` files to replace `package gopee` with relevant name(s) of your package(s).
 3. All done, now you can call `P()` just anywhere in your code and tests.
 
 ## Cheers!

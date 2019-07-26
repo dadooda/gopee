@@ -3,9 +3,7 @@
 // Originally from: https://github.com/dadooda/gopee.
 //
 
-package gopee_test
-
-import . "dadooda/gopee"
+package gopee
 
 func ExampleP() {
 	P("Joe")
@@ -21,7 +19,7 @@ func ExampleP() {
 	// Output:
 	// "Joe"
 	// 25
-	// gopee_test.person{firstName:"Joe", gender:"m"}
+	// gopee.person{firstName:"Joe", gender:"m"}
 }
 
 func ExampleP_labelsBasic() {
