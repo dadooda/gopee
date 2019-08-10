@@ -15,6 +15,21 @@ import (
 // is printed on the same line. Labels starting with " " are printed on the same line, producing more compact
 // and readable output.
 func P(args ...interface{}) {
+	isLabel := func(v interface{}) bool {
+		return (reflect.TypeOf(v).Name() == "string" && strings.HasSuffix(v.(string), ":"))
+	}
+
+	isSameLineLabel := func(s string) bool {
+		return strings.HasPrefix(s, " ")
+	}
+
+	newline := func(i int) string {
+		if i > 0 {
+			return "\n"
+		}
+		return ""
+	}
+
 	afterLabel := false
 
 	for i, v := range args {
@@ -26,29 +41,17 @@ func P(args ...interface{}) {
 			afterLabel = false
 		} else {
 			// Value or label.
-
-			var nl string
-
-			if i > 0 {
-				nl = "\n"
-			} else {
-				nl = ""
-			}
-
-			if reflect.TypeOf(v).String() == "string" && strings.HasSuffix(v.(string), ":") {
-				// Label.
-				if strings.HasPrefix(v.(string), " ") {
-					// Same-line.
+			if isLabel(v) {
+				if isSameLineLabel(v.(string)) {
 					format = "%s"
 				} else {
-					// On a new line.
-					format = nl + "%s"
+					format = newline(i) + "%s"
 				}
 
 				afterLabel = true
 			} else {
 				// Regular value.
-				format = nl + "%#v"
+				format = newline(i) + "%#v"
 			}
 		}
 
